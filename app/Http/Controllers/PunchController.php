@@ -51,15 +51,17 @@ class PunchController extends Controller
         }
         else {
             $record = PunchHistory::find($punch_id);
+            $record->payrate = (int)Auth::user()->pay_rate;
             $record->punch_out_time = date('Y-m-d H:i:s');
-            $endtime = time();
-            $starttime = strtotime($record->punch_in_time);
-            $salary = ($endtime - $starttime ) *  (Auth::user()->pay_rate ) / 3600;
-            $record->salary = $salary;
+            // $endtime = time();
+            // $starttime = strtotime($record->punch_in_time);
+            // $salary = ($endtime - $starttime ) *  $record->payrate / 3600;
+            // $record->salary = $salary;
             $record->save();
         }
         return redirect()->route('punch_view');
     }
+
 
     public function delete(){
 

@@ -127,6 +127,30 @@
                 <i class="fas fa-fw fa-chart-area"></i>
                 <span>Charts</span></a>
         </li> --}}
+        @if (Auth::user()->permission == 0)
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('punch_view') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Punch</span></a>
+        </li>
+
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('manager_view') }}")>
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>All History</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('employee_view') }}">
+                <i class="fas fa-fw fa-chart-area"></i>
+                <span>Employee</span></a>
+        </li>
+        @endif
+
+
+
+
 
         <!-- Nav Item - Tables -->
         {{-- <li class="nav-item">

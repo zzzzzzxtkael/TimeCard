@@ -27,3 +27,22 @@ Route::get('/punch/insert/{punch_id}', 'PunchController@insert')->name("punch_in
 //test ----
 Route::get('/punch/test','PunchController@test')->name("punch_test");
 
+//manager---
+Route::get("/manager/list", 'ManagerController@list')->name("manager_view");
+//Route::get("/manager/list", 'ManagerController@edit')->name("manager_edit");
+Route::get("/manager/employee", 'UserController@list')->name("employee_view");
+Route::get("/manager/edituser/{userid}", 'UserController@edit')->name("edituser_view");
+//update userinfo
+Route::post("/manager/updateuser", 'UserController@update')->name("edituser_update");
+//delete user
+Route::get("/manager/deleteuser/{userid}", 'UserController@deleteuser')->name("edituser_delete");
+
+//edit punch
+Route::get("/manager/edithitsory/{punchid}", 'ManagerController@edit')->name("editpunch_view");
+//update punch
+Route::post("/manager/updatepunch", 'ManagerController@update')->name("editpunch_update");
+//delete punch
+Route::get("/manager/deletepunch/{punchid}", 'ManagerController@deletepunch')->name("editpunch_delete");
+
+
+
